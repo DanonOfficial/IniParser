@@ -12,7 +12,7 @@ namespace error {
     class WrongFormatError : std::exception {
     public:
 
-        explicit WrongFormatError(std::string msg) noexcept : msg(msg) {}
+        explicit WrongFormatError(std::string msg) noexcept : msg(std::move(msg)) {}
 
         ~WrongFormatError() noexcept override = default;
 
