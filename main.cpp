@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     try {
         std::cout << "wow\n";
-        parser::IniParser a("kek.txt");
+        parser::IniParser a("kek.ini");
         std::cout << a.getData<float>(string("DEBUG"), string("PlentySockMaxSsize")) << std::endl;
     }
     catch (error::VariableError &a) {
