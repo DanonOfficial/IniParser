@@ -12,11 +12,11 @@ namespace error {
     class WrongFormatError : std::exception {
     public:
 
-        WrongFormatError(std::string msg) noexcept : msg(msg) {}
+        explicit WrongFormatError(std::string msg) noexcept : msg(msg) {}
 
-        ~WrongFormatError() noexcept = default;
+        ~WrongFormatError() noexcept override = default;
 
-        const char *what() const noexcept {
+        const char *what() const noexcept override {
             return msg.c_str();
         }
 
