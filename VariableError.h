@@ -11,11 +11,11 @@ namespace error {
     class VariableError : std::exception {
     public:
 
-        VariableError(std::string msg) noexcept : msg(msg) {}
+        explicit VariableError(std::string msg) noexcept : msg(std::move(msg)) {}
 
-        ~VariableError() noexcept = default;
+        ~VariableError() noexcept override= default;
 
-        const char *what() const noexcept {
+        const char *what() const noexcept override {
             return msg.c_str();
         }
 
