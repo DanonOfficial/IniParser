@@ -9,11 +9,11 @@ namespace error {
     class NoSuchVariable : std::exception {
     public:
 
-        NoSuchVariable(std::string msg) noexcept : msg(msg) {}
+        explicit NoSuchVariable(std::string msg) noexcept : msg(std::move(msg)) {}
 
-        ~NoSuchVariable() noexcept = default;
+        ~NoSuchVariable()  noexcept override = default;
 
-        const char *what() const noexcept {
+        const char *what() const noexcept override {
             return msg.c_str();
         }
 
