@@ -11,11 +11,11 @@ namespace error {
     class SectionError : std::exception {
     public:
 
-        SectionError(std::string msg) noexcept : msg(msg) {}
+        explicit SectionError(std::string msg) noexcept : msg(std::move(msg)) {}
 
-        ~SectionError() noexcept = default;
+        ~SectionError() noexcept override = default;
 
-        const char *what() const noexcept {
+        const char *what() const noexcept override{
             return msg.c_str();
         }
 
