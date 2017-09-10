@@ -11,7 +11,8 @@ bool isLiteralOrNumeric(char a);
 
 
 namespace parser {
-    IniParser::IniParser(const std::string name) {
+
+    void IniParser::initialize(const std::string &name) {
         std::ifstream in(name);
         if (!in) {
             throw error::NoFileError("There is no this file))0)");
@@ -81,11 +82,9 @@ namespace parser {
                 stringCount++;
             }
         }
+
     }
 
-    IniParser::~IniParser() {
-        data.clear();
-    }
 
     void IniParser::printData() const {
         for (auto i = data.begin(); i != data.end(); i++) {
@@ -96,12 +95,12 @@ namespace parser {
         }
     }
 
-    bool IniParser::isHaveSection(const std::string name) const {
+    bool IniParser::isHaveSection(const std::string &name) const {
         auto isHere = data.find(name);
         return isHere != data.end();
     }
 
-    bool IniParser::isHaveVariable(const std::string sectionName, const std::string variableName) const {
+    bool IniParser::isHaveVariable(const std::string &sectionName, const std::string &variableName) const {
         if(isHaveSection(sectionName)){
             auto isHere =(*data.find(sectionName)).second.find(variableName);
             return isHere != (*data.find(sectionName)).second.end();
