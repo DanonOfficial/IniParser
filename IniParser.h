@@ -23,16 +23,16 @@ namespace parser {
 
         void printData() const;
 
-        IniParser(const std::string name);
+        void initialize(const std::string &name);
 
-        bool isHaveSection(const std::string name) const;
+        bool isHaveSection(const std::string &name) const;
 
-        bool isHaveVariable(const std::string sectionName, const std::string variableName) const;
+        bool isHaveVariable(const std::string &sectionName, const std::string &variableName) const;
 
         template<typename T>
-        T getData(const std::string sectionName, const std::string variableName) const;
+        T getData(const std::string &sectionName, const std::string &variableName) const;
 
-        virtual ~IniParser();
+        virtual ~IniParser() = default;
 
 
     private:
@@ -42,7 +42,7 @@ namespace parser {
     };
 
     template<class T>
-    T IniParser::getData(const std::string sectionName, const std::string variableName) const {
+    T IniParser::getData(const std::string &sectionName, const std::string &variableName) const {
         if (!isHaveVariable(sectionName, variableName)) {
             throw error::NoSuchVariable(
                     "Please check variable and section name\n section: " + sectionName + "\n variable: " +
