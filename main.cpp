@@ -8,8 +8,9 @@ using namespace std;
 int main() {
     try {
         std::cout << "wow\n";
-        parser::IniParser a("kek.ini");
-        std::cout << a.getData<float>(string("DEBUG"), string("PlentySockMaxSsize")) << std::endl;
+        parser::IniParser a;
+        a.initialize("kek.ini");
+        std::cout << a.getData<std::string>(string("DEBUG"), string("DBAddressIP")) << std::endl;
     }
     catch (error::VariableError &a) {
         std::cout << a.what() << std::endl;
