@@ -46,7 +46,7 @@ namespace parser {
                     }
                     if (isLiteralOrNumeric(temp[i])) {
                         variableName.clear();
-                        while (isLiteralOrNumeric(temp[i])) {//creating name wow bug with exception
+                        while (isLiteralOrNumeric(temp[i])) {//creating name 
                             if (i > temp.length()) {
                                 throw error::VariableError(
                                         "Wrong Variable name at " + std::to_string(stringCount) + " str");
