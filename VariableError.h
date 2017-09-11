@@ -8,7 +8,7 @@
 #include <stdexcept>
 
 namespace error {
-    class VariableError : std::exception {
+    class VariableError : public std::exception {
     public:
 
         explicit VariableError(std::string msg) noexcept : msg(std::move(msg)) {}
