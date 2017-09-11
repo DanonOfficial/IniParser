@@ -6,7 +6,7 @@
 #define OOP_NOSUCHVARIABLE_H
 #include <stdexcept>
 namespace error {
-    class NoSuchVariable : std::exception {
+    class NoSuchVariable : public std::exception {
     public:
 
         explicit NoSuchVariable(std::string msg) noexcept : msg(std::move(msg)) {}
