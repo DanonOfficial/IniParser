@@ -8,7 +8,7 @@
 #include <stdexcept>
 
 namespace error {
-    class SectionError : std::exception {
+    class SectionError : public std::exception {
     public:
 
         explicit SectionError(std::string msg) noexcept : msg(std::move(msg)) {}
