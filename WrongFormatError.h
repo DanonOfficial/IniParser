@@ -9,7 +9,7 @@
 #include <stdexcept>
 
 namespace error {
-    class WrongFormatError : std::exception {
+    class WrongFormatError : public std::exception {
     public:
 
         explicit WrongFormatError(std::string msg) noexcept : msg(std::move(msg)) {}
